@@ -1,0 +1,20 @@
+{
+  "name": "bottomify",
+  "version": "0.1.0",
+  "main": "dist/bottomify.js",
+  "unpkg": "dist/bottomify.min.js",
+  "types": "dist/bottomify.d.ts",
+  "repository": "https://github.com/bottom-software-foundation/bottom-js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc & node-minify --input dist/bottomify.js --output dist/bottomify.min.js"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.22",
+    "node-minify": "^3.6.0",
+    "prettier": "^2.2.1"
+  },
+  "files": [
+    "dist/*"
+  ]
+}
