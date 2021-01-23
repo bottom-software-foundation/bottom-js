@@ -45,8 +45,7 @@ function encodeChar(charValue) {
     var _a = __read(CHARACTER_VALUES.find(function (_a) {
         var _b = __read(_a, 1), val = _b[0];
         return charValue >= val;
-    }) ||
-        CHARACTER_VALUES.find(function () { return 0; }), 2), val = _a[0], currentCase = _a[1];
+    }) || CHARACTER_VALUES[-1], 2), val = _a[0], currentCase = _a[1];
     return "" + currentCase + encodeChar(charValue - val);
 }
 function encode(value) {
@@ -66,9 +65,9 @@ function decode(value) {
             var _a = __read(CHARACTER_VALUES.find(function (_a) {
                 var _b = __read(_a, 2), _ = _b[0], em = _b[1];
                 return em == character;
-            }), 2), value = _a[0], emoji = _a[1];
+            }) || [-1, ""], 2), value = _a[0], emoji = _a[1];
             if (!emoji) {
-                throw TypeError("Invalid bottom text: '" + value + "'");
+                throw new TypeError("Invalid bottom text: '" + character + "'");
             }
             return value;
         })

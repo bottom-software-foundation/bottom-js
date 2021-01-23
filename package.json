@@ -1,6 +1,6 @@
 {
   "name": "bottomify",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "dist/bottomify.js",
   "unpkg": "dist/bottomify.min.js",
   "types": "dist/bottomify.d.ts",
@@ -14,10 +14,14 @@
     "node-minify": "^3.6.0",
     "prettier": "^2.2.1"
   },
+  "bin": {
+    "bottomify": "dist/cli.js"
+  },
   "files": [
     "dist/*"
   ],
   "dependencies": {
+    "@types/yargs": "^15.0.12",
     "yargs": "^16.2.0"
   }
 }

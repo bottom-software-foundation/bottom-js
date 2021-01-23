@@ -12,26 +12,40 @@ $ npm i bottomify
 $ yarn add bottomify
 ```
 
-### Deno: 
+### Deno:
 
 ```ts
-import { encode, decode } from "https://deno.land/x/bottomify@0.2.0/deno.ts"
+import { encode, decode } from "https://deno.land/x/bottomify@0.3.0/deno.ts";
 ```
 
 ### Browser:
 
 ```html
 <!-- unpkg -->
-<script src="https://unpkg.com/bottomify@0.1.0/dist/bottomify.js"></script>
+<script src="https://unpkg.com/bottomify@0.3.0/dist/bottomify.js"></script>
 <!-- jsDelivr -->
-<script src="https://cdn.jsdelivr.net/npm/bottomify@0.1.0/dist/bottomify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bottomify@0.3.0/dist/bottomify.js"></script>
 
 <!-- Minified -->
 
 <!-- unpkg -->
-<script src="https://unpkg.com/bottomify@0.1.0/dist/bottomify.min.js"></script>
+<script src="https://unpkg.com/bottomify@0.3.0/dist/bottomify.min.js"></script>
 <!-- jsDelivr -->
-<script src="https://cdn.jsdelivr.net/npm/bottomify@0.1.0/dist/bottomify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bottomify@0.3.0/dist/bottomify.min.js"></script>
+```
+
+## Command-line Interface
+
+> Currently this is not available for Deno users.
+
+```sh
+$ bottomify --bottomify test
+💖💖✨🥺,👉👈💖💖,👉👈💖💖✨🥺👉👈💖💖✨🥺,👉👈
+$ bottomify --regress 💖💖✨🥺,👉👈💖💖,👉👈💖💖✨🥺👉👈💖💖✨🥺,👉👈
+test
+$ bottomify --bottomify --input test.top
+💖💖✨🥺,👉👈💖💖,👉👈💖💖✨🥺👉👈💖💖✨🥺,👉👈
+$ bottomify --bottomify test --output test.btm
 ```
 
 ## Examples

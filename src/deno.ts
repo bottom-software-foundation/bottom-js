@@ -43,7 +43,7 @@ export function decode(value: string): string {
               CHARACTER_VALUES.find(([_, em]) => em == character) ||
               CHARACTER_VALUES[-1];
             if (!emoji) {
-              throw TypeError(`Invalid bottom text: '${value}'`);
+              throw new TypeError(`Invalid bottom text: '${value}'`);
             }
             return value;
           })
