@@ -5,10 +5,7 @@
     "outDir": "dist",
     "esModuleInterop": true,
     "downlevelIteration": true,
-    "declaration": true,
+    "declaration": true
   },
-  "exclude": [
-    "test/**/*.ts",
-    "dist"
-  ]
+  "exclude": ["test/**/*.ts", "dist", "src/deno.ts"]
 }

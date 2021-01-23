@@ -5,13 +5,21 @@
 ## Installation
 
 ### Node:
+
 ```sh
 $ npm i bottomify
 # OR
 $ yarn add bottomify
 ```
 
+### Deno: 
+
+```ts
+import { encode, decode } from "https://deno.land/x/bottomify@0.2.0/deno.ts"
+```
+
 ### Browser:
+
 ```html
 <!-- unpkg -->
 <script src="https://unpkg.com/bottomify@0.1.0/dist/bottomify.js"></script>
@@ -29,7 +37,5 @@ $ yarn add bottomify
 ## Examples
 
 ```js
-const bottomify = require("bottomify")
-
-console.log(bottomify.encode("Hello World!"))
+console.log(encode("Hello World!"));
 ```
