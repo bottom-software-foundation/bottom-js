@@ -67,9 +67,9 @@ yargs
       }
       function write(text: string) {
         if (argv.output) {
-          fs.writeFileSync(argv.output, Buffer.from(text))
+          fs.writeFileSync(argv.output, Buffer.from(text));
         } else {
-          console.log(text)
+          console.log(text);
         }
       }
 
