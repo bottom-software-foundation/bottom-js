@@ -15,11 +15,8 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spread = (this && this.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.decode = exports.encode = void 0;
 var CHARACTER_VALUES = [
     [200, "🫂"],
     [50, "💖"],
@@ -39,6 +36,15 @@ function textEncoder() {
         return new (require("util").TextEncoder)();
     }
 }
+function textDecoder() {
+    try {
+        return new TextDecoder();
+    }
+    catch (_a) {
+        // more than likely Node.JS
+        return new (require("util").TextDecoder)();
+    }
+}
 function encodeChar(charValue) {
     if (charValue === 0)
         return "";
@@ -55,7 +61,7 @@ function encode(value) {
 }
 exports.encode = encode;
 function decode(value) {
-    return String.fromCodePoint.apply(String, __spread(value
+    return textDecoder().decode(Uint8Array.from(value
         .trim()
         .replace(FINAL_TERMINATOR, "")
         .split(SECTION_SEPERATOR)

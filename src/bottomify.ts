@@ -13,12 +13,25 @@ interface TextEncoderType {
   encode: (input?: string) => Uint8Array;
 }
 
+interface TextDecoderType {
+  decode: (input?: Uint8Array) => string;
+}
+
 function textEncoder(): TextEncoderType {
   try {
     return new TextEncoder();
   } catch {
     // more than likely Node.JS
     return new (require("util").TextEncoder)();
+  }
+}
+
+function textDecoder(): TextDecoderType {
+  try {
+    return new TextDecoder();
+  } catch {
+    // more than likely Node.JS
+    return new (require("util").TextDecoder)();
   }
 }
 
@@ -36,8 +49,8 @@ export function encode(value: string): string {
 }
 
 export function decode(value: string): string {
-  return String.fromCodePoint(
-    ...value
+  return textDecoder().decode(Uint8Array.from(
+    value
       .trim()
       .replace(FINAL_TERMINATOR, "")
       .split(SECTION_SEPERATOR)
@@ -54,5 +67,5 @@ export function decode(value: string): string {
           })
           .reduce((p, c) => p + c);
       })
-  );
+  ));
 }

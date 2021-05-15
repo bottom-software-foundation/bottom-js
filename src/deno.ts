@@ -13,8 +13,16 @@ interface TextEncoderType {
   encode: (input?: string) => Uint8Array;
 }
 
+interface TextDecoderType {
+  decode: (input?: Uint8Array) => string;
+}
+
 function textEncoder(): TextEncoderType {
   return new TextEncoder();
+}
+
+function textDecoder(): TextDecoderType {
+  return new TextDecoder();
 }
 
 function encodeChar(charValue: number): string {
@@ -31,8 +39,8 @@ export function encode(value: string): string {
 }
 
 export function decode(value: string): string {
-  return String.fromCodePoint(
-    ...value
+  return textDecoder().decode(Uint8Array.from(
+    value
       .trim()
       .replace(FINAL_TERMINATOR, "")
       .split(SECTION_SEPERATOR)
@@ -49,5 +57,5 @@ export function decode(value: string): string {
           })
           .reduce((p, c) => p + c);
       })
-  );
+  ));
 }
